@@ -73,8 +73,8 @@ const navItems = [
 
 .site-header__brand-icon {
   display: block;
-  width: 32px;
-  height: 32px;
+  width: auto;
+  height: 40px;
   object-fit: contain;
 }
 
@@ -85,13 +85,28 @@ const navItems = [
 }
 
 .site-header__nav-link {
+  position: relative;
+  display: inline-flex;
   color: #111827;
-  font-size: 15px;
+  font-size: 14px;
   line-height: 1;
   text-decoration: none;
 }
 
-.site-header__nav-link:hover {
-  opacity: 0.72;
+.site-header__nav-link::after {
+  position: absolute;
+  bottom: -6px;
+  left: 50%;
+  width: 100%;
+  height: 1.5px;
+  background: currentColor;
+  content: "";
+  transform: translateX(-50%) scaleX(0);
+  transform-origin: center;
+  transition: transform 0.28s ease;
+}
+
+.site-header__nav-link:hover::after {
+  transform: translateX(-50%) scaleX(1);
 }
 </style>

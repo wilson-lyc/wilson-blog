@@ -1,5 +1,8 @@
 <template>
-  <header class="site-header">
+  <header
+    class="site-header"
+    :class="{ 'site-header--scrolled': isScrolled }"
+  >
     <div class="site-header__inner">
       <div class="site-header__left">
         <a
@@ -33,19 +36,53 @@
 </template>
 
 <script setup lang="ts">
+import { onBeforeUnmount, onMounted, ref } from 'vue'
+
 const navItems = [
   { label: '首页', href: '/' },
   { label: '简历', href: '/resume' },
   { label: '博客', href: '/blog' },
 ]
+
+const isScrolled = ref(false)
+
+const updateScrollState = () => {
+  isScrolled.value = window.scrollY > 8
+}
+
+onMounted(() => {
+  updateScrollState()
+  window.addEventListener('scroll', updateScrollState, { passive: true })
+})
+
+onBeforeUnmount(() => {
+  window.removeEventListener('scroll', updateScrollState)
+})
 </script>
 
 <style scoped>
 .site-header {
   box-sizing: border-box;
+  position: sticky;
+  top: 0;
+  z-index: 100;
   width: 100%;
   min-height: 60px;
   padding: 0 20px;
+  background: transparent;
+  border-bottom: 1px solid transparent;
+  transition:
+    background-color 0.28s ease,
+    border-color 0.28s ease,
+    backdrop-filter 0.28s ease,
+    -webkit-backdrop-filter 0.28s ease;
+}
+
+.site-header--scrolled {
+  background: rgb(255 255 255 / 72%);
+  border-bottom-color: #e5e7eb;
+  backdrop-filter: saturate(180%) blur(18px);
+  -webkit-backdrop-filter: saturate(180%) blur(18px);
 }
 
 .site-header__inner {

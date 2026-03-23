@@ -6,8 +6,8 @@ const { data: posts } = await useAsyncData('blog-list', () =>
 )
 
 useSeoMeta({
-  title: '博客',
-  description: 'Markdown 驱动的文章列表。',
+  title: 'Wilson | Blog',
+  description: 'Wilson\'s Blog',
 })
 
 function formatDate(value: string) {
@@ -19,12 +19,12 @@ function formatDate(value: string) {
   <section class="blog-index">
     <div class="blog-index__inner">
       <header class="blog-index__hero">
-        <p class="blog-index__eyebrow">
+        <!-- <p class="blog-index__eyebrow">
           Blog
-        </p>
-        <h1>Markdown 文章</h1>
+        </p> -->
+        <h1>Blog</h1>
         <p class="blog-index__intro">
-          这里的内容来自项目根目录下的 <code>content/blog/*.md</code> 文件。
+          欢迎阅读我的文章 👋
         </p>
       </header>
 
@@ -86,7 +86,7 @@ function formatDate(value: string) {
 
 .blog-index__hero h1 {
   margin: 0;
-  font-size: clamp(32px, 5vw, 48px);
+  font-size: 36px;
   line-height: 1.1;
 }
 
@@ -114,7 +114,7 @@ function formatDate(value: string) {
 
 .post-card__title {
   margin: 0;
-  font-size: 28px;
+  font-size: 26x;
   line-height: 1.2;
 }
 
@@ -123,7 +123,7 @@ function formatDate(value: string) {
 }
 
 .post-card__description {
-  margin: 12px 0 0;
+  margin: 8px 0 0;
   color: #4b5563;
   line-height: 1.7;
 }

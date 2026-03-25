@@ -87,11 +87,24 @@
 @media (max-width: 760px) {
   .app-footer__inner {
     flex-direction: column;
-    align-items: flex-start;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
   }
 
   .app-footer__records {
-    justify-content: flex-start;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
+  }
+
+  .app-footer__copyright {
+    text-align: center;
+  }
+
+  .record-item {
+    justify-content: center;
   }
 }
 </style>

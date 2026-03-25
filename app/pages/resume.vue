@@ -1,18 +1,18 @@
 <script setup lang="ts">
 useSeoMeta({
-  title: "Wilson's Blog",
+  title: 'Resume',
 })
 </script>
 
 <template>
-  <section class="home-hero">
-    <p class="home-hero__eyebrow">Wilson's Blog</p>
-    <h1 class="home-hero__title">WELCOME</h1>
+  <section class="resume-placeholder">
+    <p class="resume-placeholder__eyebrow">Resume</p>
+    <h1 class="resume-placeholder__title">Coming Soon</h1>
   </section>
 </template>
 
 <style scoped>
-.home-hero {
+.resume-placeholder {
   box-sizing: border-box;
   display: grid;
   place-items: center;
@@ -21,19 +21,18 @@ useSeoMeta({
   text-align: center;
 }
 
-.home-hero__eyebrow {
+.resume-placeholder__eyebrow {
   margin: 0 0 12px;
   color: #9ca3af;
   font-size: 14px;
   letter-spacing: 0.28em;
 }
 
-.home-hero__title {
+.resume-placeholder__title {
   margin: 0;
   color: #111827;
-  font-size: clamp(40px, 14vw, 120px);
+  font-size: clamp(40px, 10vw, 84px);
   font-weight: 700;
-  line-height: 0.95;
-  letter-spacing: 0.04em;
+  line-height: 0.98;
 }
 </style>

@@ -124,57 +124,57 @@ onBeforeUnmount(() => {
             </p>
           </header>
 
+          <aside
+            v-if="hasToc"
+            class="blog-post__toc"
+          >
+            <div
+              class="blog-post__toc-card"
+              :class="{ 'blog-post__toc-card--collapsed': tocCollapsed }"
+            >
+              <button
+                class="blog-post__toc-toggle"
+                type="button"
+                :aria-expanded="String(!tocCollapsed)"
+                @click="tocCollapsed = !tocCollapsed"
+              >
+                <span>目录</span>
+                <span
+                  class="blog-post__toc-toggle-icon"
+                  :class="{ 'blog-post__toc-toggle-icon--collapsed': tocCollapsed }"
+                  aria-hidden="true"
+                >
+                  ▾
+                </span>
+              </button>
+
+              <nav
+                v-show="!tocCollapsed"
+                class="blog-post__toc-nav"
+                aria-label="文章目录"
+              >
+                <a
+                  v-for="item in flatTocLinks"
+                  :key="item.id"
+                  class="blog-post__toc-link"
+                  :class="[
+                    `blog-post__toc-link--depth-${Math.min(item.depth, 6)}`,
+                    { 'blog-post__toc-link--active': activeHash === `#${item.id}` },
+                  ]"
+                  :href="`#${item.id}`"
+                  @click.prevent="scrollToHeading(item.id)"
+                >
+                  {{ item.text }}
+                </a>
+              </nav>
+            </div>
+          </aside>
+
           <ContentRenderer
             class="blog-post__body"
             :value="post!"
           />
         </div>
-
-        <aside
-          v-if="hasToc"
-          class="blog-post__toc"
-        >
-          <div
-            class="blog-post__toc-card"
-            :class="{ 'blog-post__toc-card--collapsed': tocCollapsed }"
-          >
-            <button
-              class="blog-post__toc-toggle"
-              type="button"
-              :aria-expanded="String(!tocCollapsed)"
-              @click="tocCollapsed = !tocCollapsed"
-            >
-              <span>目录</span>
-              <span
-                class="blog-post__toc-toggle-icon"
-                :class="{ 'blog-post__toc-toggle-icon--collapsed': tocCollapsed }"
-                aria-hidden="true"
-              >
-                ▾
-              </span>
-            </button>
-
-            <nav
-              v-show="!tocCollapsed"
-              class="blog-post__toc-nav"
-              aria-label="文章目录"
-            >
-              <a
-                v-for="item in flatTocLinks"
-                :key="item.id"
-                class="blog-post__toc-link"
-                :class="[
-                  `blog-post__toc-link--depth-${Math.min(item.depth, 6)}`,
-                  { 'blog-post__toc-link--active': activeHash === `#${item.id}` },
-                ]"
-                :href="`#${item.id}`"
-                @click.prevent="scrollToHeading(item.id)"
-              >
-                {{ item.text }}
-              </a>
-            </nav>
-          </div>
-        </aside>
       </div>
     </div>
   </article>
@@ -247,8 +247,8 @@ onBeforeUnmount(() => {
 .blog-post__toc {
   position: fixed;
   top: 88px;
-  left: calc(50% + 420px);
-  width: 220px;
+  right: max(20px, calc(50vw - 640px));
+  width: clamp(180px, 18vw, 220px);
 }
 
 .blog-post__toc :deep(*) {
@@ -256,6 +256,8 @@ onBeforeUnmount(() => {
 }
 
 .blog-post__toc-card {
+  max-height: calc(100vh - 112px);
+  overflow: hidden;
   border: 1px solid #e5e7eb;
   border-radius: 18px;
   background: rgb(255 255 255 / 88%);
@@ -291,6 +293,8 @@ onBeforeUnmount(() => {
 .blog-post__toc-nav {
   display: grid;
   gap: 4px;
+  max-height: calc(100vh - 170px);
+  overflow-y: auto;
   padding: 0 10px 12px;
 }
 
@@ -399,11 +403,28 @@ onBeforeUnmount(() => {
   color: inherit;
 }
 
-@media (max-width: 980px) {
+@media (max-width: 1280px) {
+  .blog-post__toc {
+    top: 76px;
+    right: 16px;
+    width: 188px;
+  }
+}
+
+@media (max-width: 1100px) {
   .blog-post__toc {
     position: static;
     width: auto;
     margin-bottom: 24px;
+  }
+
+  .blog-post__toc-card {
+    max-height: none;
+  }
+
+  .blog-post__toc-nav {
+    max-height: none;
+    overflow-y: visible;
   }
 }
 </style>

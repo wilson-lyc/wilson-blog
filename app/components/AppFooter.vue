@@ -9,7 +9,7 @@
         <div class="record-item">
           <img
             class="record-item__icon"
-            src="/ba.png"
+            :src="baIcon"
             alt=""
             width="15"
             height="15"
@@ -36,6 +36,10 @@
     </div>
   </footer>
 </template>
+
+<script setup lang="ts">
+import baIcon from '~/assets/images/ba.png'
+</script>
 
 <style scoped>
 .app-footer {

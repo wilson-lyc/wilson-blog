@@ -195,17 +195,16 @@ onBeforeUnmount(() => {
   position: absolute;
   bottom: -6px;
   left: 50%;
-  width: 100%;
-  height: 1.5px;
+  width: 0;
+  height: 2px;
   background: currentColor;
   content: "";
-  transform: translateX(-50%) scaleX(0);
-  transform-origin: center;
-  transition: transform 0.28s ease;
+  transform: translateX(-50%);
+  transition: width 0.28s ease;
 }
 
 .site-header__nav-link:hover::after {
-  transform: translateX(-50%) scaleX(1);
+  width: 100%;
 }
 
 @media (max-width: 760px) {

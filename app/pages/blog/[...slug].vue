@@ -170,10 +170,12 @@ onBeforeUnmount(() => {
             </div>
           </aside>
 
-          <ContentRenderer
-            class="blog-post__body"
-            :value="post!"
-          />
+          <div class="blog-post__markdown markdown-body">
+            <ContentRenderer
+              class="blog-post__body"
+              :value="post!"
+            />
+          </div>
         </div>
       </div>
     </div>
@@ -339,11 +341,6 @@ onBeforeUnmount(() => {
   padding-left: 50px;
 }
 
-:deep(.blog-post__body) {
-  color: #111827;
-  line-height: 1.85;
-}
-
 :deep(.blog-post__body h1),
 :deep(.blog-post__body h2),
 :deep(.blog-post__body h3),
@@ -364,43 +361,10 @@ onBeforeUnmount(() => {
   text-decoration: none;
 }
 
-:deep(.blog-post__body h2),
-:deep(.blog-post__body h3) {
-  margin-top: 2.2em;
-  margin-bottom: 0.7em;
-  line-height: 1.25;
-}
-
-:deep(.blog-post__body p),
-:deep(.blog-post__body ul),
-:deep(.blog-post__body ol),
-:deep(.blog-post__body pre) {
-  margin: 1.1em 0;
-}
-
-:deep(.blog-post__body a) {
-  color: #0f766e;
-}
-
-:deep(.blog-post__body code) {
-  padding: 0.15em 0.35em;
-  border-radius: 6px;
-  background: #f3f4f6;
-  font-size: 0.9em;
-}
-
-:deep(.blog-post__body pre) {
-  overflow-x: auto;
-  padding: 16px;
-  border-radius: 16px;
-  background: #111827;
-  color: #f9fafb;
-}
-
-:deep(.blog-post__body pre code) {
+.blog-post__markdown {
+  max-width: 100%;
+  margin: 0;
   padding: 0;
-  background: transparent;
-  color: inherit;
 }
 
 @media (max-width: 1280px) {

@@ -1,10 +1,10 @@
 ---
-title: Nuxt 里的第一篇 Markdown
-description: 这篇文章用来验证 wilson-blog 已经可以把 Markdown 渲染成网页。
-date: 2026-03-23
+title: Hello!
+description: 欢迎访问我的博客
+date: 2026-03-
 ---
 
-# Markdown 已接入
+# Nice to meet you!
 
 现在这个项目已经可以直接读取 `content/blog/*.md` 文件，并把它们渲染为网页。
 

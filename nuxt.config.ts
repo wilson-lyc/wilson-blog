@@ -2,7 +2,19 @@
 export default defineNuxtConfig({
   compatibilityDate: '2025-07-15',
   modules: ['@nuxt/content'],
-  css: ['~/assets/css/main.css'],
+  css: ['github-markdown-css/github-markdown-light.css', '~/assets/css/main.css'],
+  mdc: {
+    headings: {
+      anchorLinks: {
+        h1: true,
+        h2: true,
+        h3: true,
+        h4: true,
+        h5: true,
+        h6: true,
+      },
+    },
+  },
   app: {
     head: {
       title: "Wilson's Blog",

@@ -212,12 +212,6 @@ onBeforeUnmount(() => {
     padding: 0 16px;
   }
 
-  .site-header__inner {
-    flex-direction: column;
-    align-items: stretch;
-    gap: 0;
-  }
-
   .site-header__bar {
     position: relative;
     justify-content: flex-start;
@@ -241,11 +235,20 @@ onBeforeUnmount(() => {
 
   .site-header__nav {
     display: none;
+    position: absolute;
+    top: calc(100% + 6px);
+    left: 12px;
+    right: 12px;
+    border-radius: 12px;
     flex-direction: column;
     align-items: flex-start;
     gap: 0;
-    width: 100%;
-    padding: 8px 0 12px;
+    padding: 8px 16px 12px;
+    background: rgb(255 255 255 / 96%);
+    border-bottom: 1px solid #e5e7eb;
+    box-shadow: 0 8px 24px rgb(0 0 0 / 8%);
+    backdrop-filter: saturate(180%) blur(18px);
+    -webkit-backdrop-filter: saturate(180%) blur(18px);
   }
 
   .site-header__nav--open {

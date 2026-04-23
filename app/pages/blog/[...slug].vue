@@ -377,18 +377,7 @@ onBeforeUnmount(() => {
 
 @media (max-width: 1100px) {
   .blog-post__toc {
-    position: static;
-    width: auto;
-    margin-bottom: 24px;
-  }
-
-  .blog-post__toc-card {
-    max-height: none;
-  }
-
-  .blog-post__toc-nav {
-    max-height: none;
-    overflow-y: visible;
+    display: none;
   }
 }
 </style>

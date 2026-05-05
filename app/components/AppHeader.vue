@@ -30,7 +30,7 @@
         >
           <img
             class="site-header__brand-icon"
-            :src="brandIcon"
+            src="/images/brand.png"
             alt="品牌图标"
           >
         </a>
@@ -58,7 +58,7 @@
 
 <script setup lang="ts">
 import { onBeforeUnmount, onMounted, ref } from 'vue'
-import brandIcon from '~/assets/images/brand.png'
+
 
 const navItems = [
   { label: '首页', href: '/' },

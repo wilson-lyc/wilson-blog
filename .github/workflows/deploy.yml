@@ -7,7 +7,7 @@ on:
   workflow_dispatch:
 
 jobs:
-  build-and-deploy:
+  build:
     runs-on: ubuntu-latest
 
     steps:
@@ -25,6 +25,23 @@ jobs:
 
       - name: Generate static site
         run: npm run generate
+
+      - name: Upload artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: static-site
+          path: .output/public/
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Download artifact
+        uses: actions/download-artifact@v4
+        with:
+          name: static-site
+          path: .output/public/
 
       - name: Deploy via rsync
         uses: easingthemes/ssh-deploy@v5.1.0

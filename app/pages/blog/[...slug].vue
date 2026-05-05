@@ -124,7 +124,8 @@ onBeforeUnmount(() => {
             </p>
           </header>
 
-          <aside
+          <!-- TODO: 暂时取消右侧导航栏 -->
+          <!-- <aside
             v-if="hasToc"
             class="blog-post__toc"
           >
@@ -168,7 +169,7 @@ onBeforeUnmount(() => {
                 </a>
               </nav>
             </div>
-          </aside>
+          </aside> -->
 
           <div class="blog-post__markdown markdown-body">
             <ContentRenderer
@@ -246,6 +247,8 @@ onBeforeUnmount(() => {
   line-height: 1.75;
 }
 
+/* TODO: 暂时取消右侧导航栏 */
+/*
 .blog-post__toc {
   position: fixed;
   top: 88px;
@@ -340,6 +343,7 @@ onBeforeUnmount(() => {
 .blog-post__toc-link--depth-6 {
   padding-left: 50px;
 }
+*/
 
 :deep(.blog-post__body h1),
 :deep(.blog-post__body h2),
@@ -367,6 +371,8 @@ onBeforeUnmount(() => {
   padding: 0;
 }
 
+/* TODO: 暂时取消右侧导航栏 */
+/*
 @media (max-width: 1280px) {
   .blog-post__toc {
     top: 76px;
@@ -380,4 +386,5 @@ onBeforeUnmount(() => {
     display: none;
   }
 }
+*/
 </style>

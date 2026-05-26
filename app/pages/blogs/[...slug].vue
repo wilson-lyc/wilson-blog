@@ -9,8 +9,8 @@ const currentPath = computed(() => {
 })
 
 const { data: post } = await useAsyncData(
-  () => `blog:${currentPath.value}`,
-  () => queryCollection('blog').where('path', '=', currentPath.value).first(),
+  () => `blogs:${currentPath.value}`,
+  () => queryCollection('blogs').where('path', '=', currentPath.value).first(),
 )
 
 if (!post.value) {
@@ -98,12 +98,12 @@ onBeforeUnmount(() => {
 
 <template>
   <article class="blog-post">
-    <div class="blog-post__inner">
+    <div class="blog-post__inner content-container">
       <div class="blog-post__layout">
         <div class="blog-post__main">
           <NuxtLink
             class="blog-post__back"
-            to="/blog"
+            to="/blogs"
           >
             <span
               class="blog-post__back-icon"
@@ -186,13 +186,11 @@ onBeforeUnmount(() => {
 <style scoped>
 .blog-post {
   box-sizing: border-box;
-  padding: 48px 20px 72px;
+  padding: 48px 0 72px;
 }
 
 .blog-post__inner {
   position: relative;
-  max-width: 760px;
-  margin: 0 auto;
 }
 
 .blog-post__main {
@@ -205,7 +203,7 @@ onBeforeUnmount(() => {
   gap: 8px;
   margin-bottom: 24px;
   color: #6b7280;
-  font-size: 14px;
+  font-size: var(--font-size-sm);
   text-decoration: none;
   transition: color 0.24s ease;
 }
@@ -231,7 +229,7 @@ onBeforeUnmount(() => {
 .blog-post__meta {
   margin: 0 0 10px;
   color: #6b7280;
-  font-size: 14px;
+  font-size: var(--font-size-sm);
 }
 
 .blog-post__header h1 {
@@ -243,7 +241,7 @@ onBeforeUnmount(() => {
 .blog-post__description {
   margin: 16px 0 0;
   color: #4b5563;
-  font-size: 18px;
+  font-size: var(--font-size-lg);
   line-height: 1.75;
 }
 
@@ -280,7 +278,7 @@ onBeforeUnmount(() => {
   border: 0;
   background: transparent;
   color: #111827;
-  font-size: 14px;
+  font-size: var(--font-size-sm);
   font-weight: 600;
   text-align: left;
   cursor: pointer;
@@ -308,7 +306,7 @@ onBeforeUnmount(() => {
   padding: 8px 10px;
   border-radius: 10px;
   color: #4b5563;
-  font-size: 13px;
+  font-size: var(--font-size-sm);
   line-height: 1.45;
   text-decoration: none;
   transition:

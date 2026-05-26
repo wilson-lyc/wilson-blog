@@ -62,8 +62,9 @@ import { onBeforeUnmount, onMounted, ref } from 'vue'
 
 const navItems = [
   { label: '首页', href: '/' },
+  { label: '作品集', href: '/portfolio' },
   { label: '简历', href: '/resume' },
-  { label: '博客', href: '/blog' },
+  { label: '博客', href: '/blogs' },
 ]
 
 const isScrolled = ref(false)
@@ -123,7 +124,7 @@ onBeforeUnmount(() => {
   align-items: center;
   justify-content: flex-start;
   gap: 28px;
-  max-width: 900px;
+  max-width: 1000px;
   min-height: 60px;
   margin: 0 auto;
 }
@@ -186,7 +187,7 @@ onBeforeUnmount(() => {
   position: relative;
   display: inline-flex;
   color: #111827;
-  font-size: 14px;
+  font-size: var(--font-size-base);
   line-height: 1;
   text-decoration: none;
 }
@@ -258,7 +259,7 @@ onBeforeUnmount(() => {
   .site-header__nav-link {
     width: 100%;
     padding: 12px 4px;
-    font-size: 15px;
+    font-size: var(--font-size-base);
   }
 
   .site-header__nav-link::after {

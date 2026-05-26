@@ -1,6 +1,6 @@
 <script setup lang="ts">
-const { data: posts } = await useAsyncData('blog-list', () =>
-  queryCollection('blog')
+const { data: posts } = await useAsyncData('blogs-list', () =>
+  queryCollection('blogs')
     .order('date', 'DESC')
     .all(),
 )
@@ -17,16 +17,11 @@ function formatDate(value: string) {
 
 <template>
   <section class="blog-index">
-    <div class="blog-index__inner">
-      <header class="blog-index__hero">
-        <!-- <p class="blog-index__eyebrow">
-          Blog
-        </p> -->
-        <h1>Blog</h1>
-        <p class="blog-index__intro">
-          欢迎阅读我的文章 👋
-        </p>
-      </header>
+    <div class="content-container">
+      <PageHeader
+        title="Blog"
+        subtitle="欢迎阅读我的文章 👋"
+      />
 
       <div
         v-if="posts?.length"
@@ -55,7 +50,7 @@ function formatDate(value: string) {
         v-else
         class="blog-index__empty"
       >
-        还没有文章，新增 <code>content/blog/*.md</code> 后这里会自动显示。
+        还没有文章，新增 <code>content/blogs/*.md</code> 后这里会自动显示。
       </p>
     </div>
   </section>
@@ -64,52 +59,29 @@ function formatDate(value: string) {
 <style scoped>
 .blog-index {
   box-sizing: border-box;
-  padding: 48px 20px 72px;
-}
-
-.blog-index__inner {
-  max-width: 760px;
-  margin: 0 auto;
-}
-
-.blog-index__hero {
-  margin-bottom: 40px;
-}
-
-.blog-index__eyebrow {
-  margin: 0 0 8px;
-  color: #6b7280;
-  font-size: 13px;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-}
-
-.blog-index__hero h1 {
-  margin: 0;
-  font-size: 36px;
-  line-height: 1.1;
-}
-
-.blog-index__intro {
-  margin: 14px 0 0;
-  color: #4b5563;
-  line-height: 1.7;
+  padding: 0 0 72px;
 }
 
 .blog-index__list {
-  display: grid;
-  gap: 20px;
+  display: flex;
+  flex-direction: column;
 }
 
 .post-card {
-  padding: 24px 0;
-  border-top: 1px solid #e5e7eb;
+  padding: 0 0 40px;
+  margin-bottom: 40px;
+  border-bottom: 1px solid #e5e7eb;
+}
+
+.post-card:last-child {
+  border-bottom: none;
+  margin-bottom: 0;
 }
 
 .post-card__meta {
   margin: 0 0 10px;
   color: #6b7280;
-  font-size: 14px;
+  font-size: var(--font-size-sm);
 }
 
 .post-card__title {

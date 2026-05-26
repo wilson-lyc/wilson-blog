@@ -24,7 +24,7 @@ useSeoMeta({
 .home-hero__eyebrow {
   margin: 0 0 12px;
   color: #9ca3af;
-  font-size: 14px;
+  font-size: var(--font-size-sm);
   letter-spacing: 0.28em;
 }
 

@@ -1,5 +1,29 @@
+@font-face {
+  font-family: 'LXGW WenKai Lite';
+  src: url('/fonts/LXGWWenKaiLite-Regular.ttf') format('truetype');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
 :root {
   --layout-breakpoint: 760px;
+
+  /* Typography scale — line-height = font-size + 8px */
+  --font-size-xs: 12px;
+  --line-height-xs: calc(var(--font-size-xs) + 8px);
+  --font-size-sm: 14px;
+  --line-height-sm: calc(var(--font-size-sm) + 8px);
+  --font-size-base: 17px;
+  --line-height-base: calc(var(--font-size-base) + 8px);
+  --font-size-lg: 18px;
+  --line-height-lg: calc(var(--font-size-lg) + 8px);
+  --font-size-xl: 20px;
+  --line-height-xl: calc(var(--font-size-xl) + 8px);
+  --font-size-2xl: 24px;
+  --line-height-2xl: calc(var(--font-size-2xl) + 8px);
+  --font-size-3xl: 30px;
+  --line-height-3xl: calc(var(--font-size-3xl) + 8px);
 }
 
 html,
@@ -12,8 +36,9 @@ body,
 body {
   color: #111827;
   background: #fff;
-  font-size: 17px;
-  font-family: "Helvetica Neue", "PingFang SC", "Hiragino Sans GB", sans-serif;
+  font-size: var(--font-size-base);
+  line-height: var(--line-height-base);
+  font-family: "LXGW WenKai Lite", "Helvetica Neue", "PingFang SC", "Hiragino Sans GB", sans-serif;
 }
 
 a {
@@ -28,4 +53,16 @@ a {
 
 .app-content {
   flex: 1;
+}
+
+.content-container {
+  box-sizing: border-box;
+  max-width: 1040px;
+  margin: 0 auto;
+  padding: 0 20px;
+  width: 100%;
+}
+
+.markdown-body {
+  font-family: "LXGW WenKai Lite", "Helvetica Neue", "PingFang SC", "Hiragino Sans GB", sans-serif;
 }

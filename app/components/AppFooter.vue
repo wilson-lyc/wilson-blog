@@ -47,7 +47,7 @@
   width: 100%;
   padding: 20px;
   color: #9ca3af;
-  font-size: 14px;
+  font-size: var(--font-size-sm);
   line-height: 1.6;
 }
 
@@ -57,7 +57,7 @@
   align-items: center;
   justify-content: space-between;
   gap: 16px;
-  max-width: 900px;
+  max-width: 1000px;
   margin: 0 auto;
 }
 

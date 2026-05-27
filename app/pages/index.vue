@@ -7,7 +7,7 @@ useSeoMeta({
 <template>
   <section class="home-hero">
     <p class="home-hero__eyebrow">Wilson's Blog</p>
-    <h1 class="home-hero__title">WELCOME</h1>
+    <TypeWriter />
   </section>
 </template>
 
@@ -28,12 +28,4 @@ useSeoMeta({
   letter-spacing: 0.28em;
 }
 
-.home-hero__title {
-  margin: 0;
-  color: #111827;
-  font-size: clamp(40px, 14vw, 120px);
-  font-weight: 700;
-  line-height: 0.95;
-  letter-spacing: 0.04em;
-}
 </style>

@@ -188,6 +188,7 @@ onBeforeUnmount(() => {
   display: inline-flex;
   color: #111827;
   font-size: var(--font-size-base);
+  font-weight: 600;
   line-height: 1;
   text-decoration: none;
 }

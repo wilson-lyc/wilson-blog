@@ -1,0 +1,9 @@
+{
+  "strings": [
+    "Welcome to my blog",
+    "探索代码的世界",
+    "Hello, I'm Wilson"
+  ],
+  "speed": 120,
+  "fontSize": "clamp(40px, 14vw, 120px)"
+}

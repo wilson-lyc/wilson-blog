@@ -7,21 +7,33 @@ defineProps<{
 
 <template>
   <header class="page-header">
-    <h1 class="page-header__title">{{ title }}</h1>
-    <p
-      v-if="subtitle"
-      class="page-header__subtitle"
-    >
-      {{ subtitle }}
-    </p>
+    <div class="page-header__content">
+      <h1 class="page-header__title">{{ title }}</h1>
+      <p
+        v-if="subtitle"
+        class="page-header__subtitle"
+      >
+        {{ subtitle }}
+      </p>
+    </div>
+    <div class="page-header__actions">
+      <slot name="actions"></slot>
+    </div>
   </header>
 </template>
 
 <style scoped>
 .page-header {
-  padding: 3rem 0 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 40px 0 20px;
   border-bottom: 1px solid #e5e5e5;
-  margin-bottom: 3rem;
+  margin-bottom: 20px;
+}
+
+.page-header__content {
+  flex: 1;
 }
 
 .page-header__title {
@@ -38,10 +50,22 @@ defineProps<{
   font-size: 1.1rem;
 }
 
+.page-header__actions {
+  flex-shrink: 0;
+  margin-left: 24px;
+}
+
 @media (max-width: 760px) {
   .page-header {
-    padding: 2rem 0 1.5rem;
-    margin-bottom: 2rem;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 40px 0 20px;
+    margin-bottom: 20px;
+  }
+
+  .page-header__actions {
+    margin-left: 0;
+    margin-top: 16px;
   }
 }
 </style>

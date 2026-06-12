@@ -21,7 +21,11 @@ function formatDate(value: string) {
       <PageHeader
         title="Blog"
         subtitle="欢迎阅读我的文章 👋"
-      />
+      >
+        <template #actions>
+          <span class="blog-count">共 {{ posts?.length || 0 }} 篇文章</span>
+        </template>
+      </PageHeader>
 
       <div
         v-if="posts?.length"
@@ -60,6 +64,16 @@ function formatDate(value: string) {
 .blog-index {
   box-sizing: border-box;
   padding: 0 0 72px;
+}
+
+.blog-count {
+  display: inline-flex;
+  align-items: center;
+  padding: 6px 16px;
+  border-radius: 20px;
+  background: #f3f4f6;
+  color: #6b7280;
+  font-size: var(--font-size-sm);
 }
 
 .blog-index__list {

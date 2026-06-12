@@ -10,7 +10,7 @@
         <button
           class="site-header__menu-button"
           type="button"
-          :aria-expanded="String(isMenuOpen)"
+          :aria-expanded="isMenuOpen"
           aria-controls="site-header-nav"
           aria-label="打开导航菜单"
           @click="isMenuOpen = !isMenuOpen"

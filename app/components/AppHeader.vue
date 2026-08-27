@@ -2,7 +2,6 @@
   <header
     class="site-header"
     :class="{
-      'site-header--scrolled': isScrolled,
       'site-header--menu-open': isMenuOpen,
     }"
   >
@@ -11,7 +10,7 @@
         <button
           class="site-header__menu-button"
           type="button"
-          :aria-expanded="String(isMenuOpen)"
+          :aria-expanded="isMenuOpen"
           aria-controls="site-header-nav"
           aria-label="打开导航菜单"
           @click="isMenuOpen = !isMenuOpen"
@@ -59,20 +58,13 @@
 <script setup lang="ts">
 import { onBeforeUnmount, onMounted, ref } from 'vue'
 
-
 const navItems = [
   { label: '首页', href: '/' },
   { label: '作品集', href: '/portfolio' },
-  { label: '简历', href: '/resume' },
   { label: '博客', href: '/blogs' },
 ]
 
-const isScrolled = ref(false)
 const isMenuOpen = ref(false)
-
-const updateScrollState = () => {
-  isScrolled.value = window.scrollY > 8
-}
 
 const handleResize = () => {
   if (window.innerWidth > 760) {
@@ -81,14 +73,11 @@ const handleResize = () => {
 }
 
 onMounted(() => {
-  updateScrollState()
   handleResize()
-  window.addEventListener('scroll', updateScrollState, { passive: true })
   window.addEventListener('resize', handleResize, { passive: true })
 })
 
 onBeforeUnmount(() => {
-  window.removeEventListener('scroll', updateScrollState)
   window.removeEventListener('resize', handleResize)
 })
 </script>
@@ -102,20 +91,8 @@ onBeforeUnmount(() => {
   width: 100%;
   min-height: 60px;
   padding: 0 20px;
-  background: transparent;
-  border-bottom: 1px solid transparent;
-  transition:
-    background-color 0.28s ease,
-    border-color 0.28s ease,
-    backdrop-filter 0.28s ease,
-    -webkit-backdrop-filter 0.28s ease;
-}
-
-.site-header--scrolled {
-  background: rgb(255 255 255 / 72%);
-  border-bottom-color: #e5e7eb;
-  backdrop-filter: saturate(180%) blur(18px);
-  -webkit-backdrop-filter: saturate(180%) blur(18px);
+  background: #ffffff;
+  border-bottom: 1px solid #e5e7eb;
 }
 
 .site-header__inner {
@@ -187,7 +164,7 @@ onBeforeUnmount(() => {
   position: relative;
   display: inline-flex;
   color: #111827;
-  font-size: var(--font-size-base);
+  font-size: var(--font-size-sm);
   font-weight: 600;
   line-height: 1;
   text-decoration: none;
@@ -246,11 +223,9 @@ onBeforeUnmount(() => {
     align-items: flex-start;
     gap: 0;
     padding: 8px 16px 12px;
-    background: rgb(255 255 255 / 96%);
-    border-bottom: 1px solid #e5e7eb;
-    box-shadow: 0 8px 24px rgb(0 0 0 / 8%);
-    backdrop-filter: saturate(180%) blur(18px);
-    -webkit-backdrop-filter: saturate(180%) blur(18px);
+    background: #ffffff;
+    border: 1px solid #e5e7eb;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.05);
   }
 
   .site-header__nav--open {
@@ -260,7 +235,7 @@ onBeforeUnmount(() => {
   .site-header__nav-link {
     width: 100%;
     padding: 12px 4px;
-    font-size: var(--font-size-base);
+    font-size: var(--font-size-sm);
   }
 
   .site-header__nav-link::after {
